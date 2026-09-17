@@ -23,3 +23,26 @@ it('can authenticate with TMDB', function () {
             && $request->hasHeader('Authorization');
     });
 });
+
+it('can retrieve movies from TMDB', function () {
+
+    Http::fake([
+        '*' => Http::response([
+            'results' => [
+                [
+                    'id' => 1,
+                    'title' => 'Movie One',
+                ],
+                [
+                    'id' => 2,
+                    'title' => 'Movie Two',
+                ],
+            ],
+        ], 200),
+    ]);
+
+    $service = new TmdbService();
+    $response = $service->getFilm();
+
+    expect($response['results'])->toHaveCount(2);
+});
