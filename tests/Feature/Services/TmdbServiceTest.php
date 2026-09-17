@@ -42,7 +42,7 @@ it('can retrieve movies from TMDB', function () {
     ]);
 
     $service = new TmdbService();
-    $response = $service->getFilm();
+    $response = $service->getMovies();
 
     expect($response['results'])->toHaveCount(2);
 });
