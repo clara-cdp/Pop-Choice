@@ -23,7 +23,7 @@ it('returns 10 movies for the initial pool', function () {
 
     $poolService = new PoolService($tmdb);
 
-    $pool = $poolService->getInitialMoviePool();
+    $pool = $poolService->getInitialMoviesPool();
 
     expect($pool)->toHaveCount(10);
 });
