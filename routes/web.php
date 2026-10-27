@@ -6,6 +6,8 @@ use App\Http\Controllers\MovieController;
 
 Route::get('/tmdb-test', [MovieController::class, 'testTmdb']);
 
+Route::get('/movies/pool', [MovieController::class, 'initialPool']);
+
 Route::inertia('/', 'welcome', [
     'canRegister' => Features::enabled(Features::registration()),
 ])->name('home');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\TmdbService;
 use Illuminate\Http\JsonResponse;
+use App\Services\PoolService;
 
 class MovieController extends Controller
 {
@@ -11,6 +12,13 @@ class MovieController extends Controller
     {
         return response()->json(
             $tmdb->testConnection()
+        );
+    }
+
+    public function initialPool(PoolService $pool): JsonResponse
+    {
+        return response()->json(
+            $pool->getInitialMoviesPool()
         );
     }
 }
