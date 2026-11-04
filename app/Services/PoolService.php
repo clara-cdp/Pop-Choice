@@ -2,8 +2,6 @@
 
 namespace App\Services;
 
-use Illuminate\Support\Collection;
-
 class PoolService
 {
     public function __construct(
@@ -14,7 +12,17 @@ class PoolService
     {
         $response = $this->tmdb->getMovies();
 
-        return array_slice($response['results'], 0, 10);
+        $movies = array_slice($response['results'], 0, 10);
+
+        return array_map(function ($movie) {
+            return [
+                'id' => $movie['id'],
+                'title' => $movie['title'],
+                'poster' => $movie['poster_path'],
+                'year' => substr($movie['release_date'], 0, 4),
+                'genre_ids' => $movie['genre_ids'],
+            ];
+        }, $movies);
     }
 }
 
