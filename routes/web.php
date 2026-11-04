@@ -6,7 +6,9 @@ use App\Http\Controllers\MovieController;
 
 Route::get('/tmdb-test', [MovieController::class, 'testTmdb']);
 
+//temporary endpoints
 Route::get('/movies/pool', [MovieController::class, 'initialPool']);
+Route::get('/movies/random', [MovieController::class, 'randomMovie']);
 
 Route::inertia('/', 'welcome', [
     'canRegister' => Features::enabled(Features::registration()),
