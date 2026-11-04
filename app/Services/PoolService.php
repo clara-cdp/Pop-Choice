@@ -19,7 +19,7 @@ class PoolService
                 'id' => $movie['id'],
                 'title' => $movie['title'],
                 'poster' => $movie['poster_path'],
-                'year' => substr($movie['release_date'], 0, 4),
+                'year' => (int) substr($movie['release_date'], 0, 4),
                 'genre_ids' => $movie['genre_ids'],
             ];
         }, $movies);

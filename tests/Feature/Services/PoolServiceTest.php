@@ -9,6 +9,9 @@ it('returns 10 movies for the initial pool', function () {
         return [
             'id' => $id,
             'title' => "Movie {$id}",
+            'poster_path' => "/poster{$id}.jpg",
+            'release_date' => '2024-05-10',
+            'genre_ids' => [28, 12],
         ];
     })->toArray();
 
