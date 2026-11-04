@@ -21,4 +21,11 @@ class MovieController extends Controller
             $pool->getInitialMoviesPool()
         );
     }
+
+    public function randomMovie(PoolService $pool): JsonResponse
+    {
+        return response()->json(
+            $pool->getRandomMovie()
+        );
+    }
 }

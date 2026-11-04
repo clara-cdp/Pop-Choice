@@ -24,5 +24,10 @@ class PoolService
             ];
         }, $movies);
     }
+    public function getRandomMovie(): array
+    {
+        $pool = $this->getInitialMoviesPool();
+        return $pool[array_rand($pool)];
+    }
 }
 
